@@ -1,0 +1,79 @@
+---
+import "../styles/global.css";
+import ContactMenu from "../components/contact-menu.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Home | Tim Nees Architects</title>
+  </head>
+  <body class="body__profile">
+    <p class="profile-text backdrop">
+      NEW WORK STUDIO / TIM NEES ARCHITECTS is an architectural practice based
+      in Otautahi Christchurch New Zealand. We specialise in new homes of any
+      size or budget that focus on meaningful design and quality of space. Our
+      clients include individuals, young couples, families and later life
+      couples. We practice respect and equality with our clients and
+      collaborators. We believe the quality of the space experienced is more
+      important than how the space looks, and we favour spatial planning in
+      relationship to the site above style and appearance. Design is developed
+      through careful consideration of scale, view, light, materials, spatial
+      unfolding, privacy and openness, and the integration of garden and
+      landscape with the architectural design. That doesn’t mean our designs
+      aren’t beautiful. We want them to be beautiful, naturally, and to be a
+      source of pride for their owners. But it means that behind the elegance of
+      the building stands a meaningful arrangement of comfortable liveable
+      spaces. We research the history of the site, it’s past occupation, past
+      cultures, and endeavour to embed qualities derived from this into the
+      architectural design. We work with natural and sustainable materials with
+      an emphasis on timber, self-sufficiency and low energy approaches, and
+      sometimes even fully off grid dwellings. We work in the city and in the
+      country. We work locally and nationally. We are hands-on. We draw and
+      model. We also use the computer. We are a Te Kāhui Whaihanga New Zealand
+      Institute of Architects Registered Practice. Tim Nees is a Fellow of the
+      NZIA. He has contributed to the profession by being Chair of the NZIA
+      Canterbury Branch, President of the Architectural Centre Wellington,
+      Architect in Residence at University of Canterbury College of Engineering,
+      and Panellist of the Urban Design Panel Christchurch City Council. He has
+      led several NZIA Award juries. NEW WORK STUDIO / TIM NEES ARCHITECTS has
+      won over 20 NZIA awards for Excellence in Architecture, including several
+      regional awards and a national award. Our work has been published locally
+      and internationally.
+    </p>
+    <ContactMenu />
+  </body>
+</html>
+
+<style>
+  .body__profile {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-end;
+  }
+
+  .body__profile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/public/models profile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    z-index: -1;
+  }
+
+  .profile-text {
+    max-width: 60ch;
+    margin: auto;
+  }
+</style>
