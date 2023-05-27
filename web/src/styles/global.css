@@ -27,9 +27,11 @@ ol[role="list"] {
 
 html {
   font-size: 62.5%;
+}
 
-  @media (min-width: 1800px) {
-    font-size: 75%;
+@media (min-width: 1800px) {
+  html {
+    font-size: 80%;
   }
 }
 
@@ -45,8 +47,10 @@ body {
   line-height: 1.5;
   padding: 10rem 10rem 0 10rem;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
+  body {
     padding: 3rem 3rem 0 3rem;
   }
 }
@@ -129,4 +133,10 @@ p {
   backdrop-filter: blur(10px) saturate(70%);
   background-color: rgba(0, 0, 0, 0.2);
   padding: 2.25rem;
+}
+
+@media (max-width: 37.5em) {
+  .backdrop.heading {
+    padding: 1.25rem;
+  }
 }

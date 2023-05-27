@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+const { showHome } = Astro.props;
+---
+
+<menu class="navigation-section backdrop">
+  {
+    showHome && (
+      <p>
+        <a href="/">Home</a>
+      </p>
+    )
+  }
+  <p><a href="/profile">Profile</a></p>
+  <p><a href="/projects">Projects</a></p>
+  <p><a href="/awards">Awards</a></p>
+</menu>
+
+<style>
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10rem;
+    gap: 10rem;
+    width: min-content;
+  }
+
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 2.25rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.777rem;
+  }
+</style>
