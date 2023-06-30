@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
-import Footer from "../components/footer.astro";
+import ContactMenu from "../components/contact-menu.astro";
+import NavigationMenu from "../components/navigation-menu.astro";
 ---
 
 <html lang="en">
@@ -11,24 +12,22 @@ import Footer from "../components/footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Home | Tim Nees Architects</title>
   </head>
-  <body class="body__homepage">
-    <div class="heading backdrop">
-      <h1 class="main-heading">newworkstudio/&nbsp;</h1>
-      <h2 class="main-heading">timneesarchitect</h2>
+  <body class="body__homepage backdrop">
+    <div class="backdrop">
+      <div class="heading">
+        <h1 class="main-heading">newworkstudio/&nbsp;</h1>
+        <h2 class="main-heading">timneesarchitect</h2>
+      </div>
+      <article class="navigation">
+        <NavigationMenu />
+
+        <ContactMenu />
+      </article>
     </div>
-    <Footer />
   </body>
 </html>
 
-<style>
-  .body__homepage {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: flex-end;
-  }
-
+<style lang="scss">
   .body__homepage::before {
     content: "";
     position: absolute;
@@ -46,11 +45,28 @@ import Footer from "../components/footer.astro";
   .heading {
     align-self: flex-end;
     width: min-content;
+    margin: 5rem 5rem 0 0;
   }
 
   .main-heading {
-    font-size: 4.209rem;
+    font-size: 6.209rem;
     font-weight: 600;
     line-height: 1.2;
+    color: #ffffff;
+
+    @media (max-width: 600px) {
+      font-size: 4.209rem;
+    }
+  }
+  .contact {
+    margin-top: 15rem;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-block-start: 20rem;
   }
 </style>

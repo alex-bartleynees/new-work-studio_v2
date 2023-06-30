@@ -1,0 +1,61 @@
+---
+import ContactMenu from "../../components/contact-menu.astro";
+import ImageWrapper from "../../components/image-wrapper.astro";
+import "../../styles/global.css";
+import { useSanityClient } from "astro-sanity";
+
+const data = await useSanityClient().fetch(
+  `*[_type == "projects"][0..4]  | order(_createdAt desc)`
+);
+const projects = data.map((project) => {
+  return {
+    id: project._id,
+    title: project?.title,
+    images: project?.images,
+    description: project?.description,
+    slug: project?.slug.current,
+  };
+});
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Projects | Tim Nees Architects</title>
+  </head>
+  <body class="backdrop">
+    <section class="projects">
+      {
+        projects.map((project) => (
+          <a href={`projects/${project.slug}`}>
+            <ImageWrapper image={project.images[0]} />{" "}
+          </a>
+        ))
+      }
+    </section>
+
+    <ContactMenu />
+  </body>
+
+  <style lang="scss">
+    .projects {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      padding: 0 1rem;
+      gap: 2rem;
+
+      @media (max-width: 768px) {
+        flex-wrap: wrap;
+        padding: 1rem;
+        justify-content: center;
+      }
+    }
+  </style>
+</html>

@@ -3,7 +3,7 @@ import "../styles/global.css";
 const { showHome } = Astro.props;
 ---
 
-<menu class="navigation-section backdrop">
+<menu class="navigation-section">
   {
     showHome && (
       <p>
@@ -11,34 +11,21 @@ const { showHome } = Astro.props;
       </p>
     )
   }
-  <p><a href="/profile">Profile</a></p>
-  <p><a href="/projects">Projects</a></p>
-  <p><a href="/awards">Awards</a></p>
+  <p><a href="/profile">profile</a></p>
+  <p><a href="/projects">projects</a></p>
+  <p><a href="/awards">awards</a></p>
 </menu>
 
 <style>
-  .contact-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 10rem;
-    gap: 10rem;
-    width: min-content;
-  }
-
-  a {
-    color: #000000;
-    text-decoration: none;
-  }
-
-  menu {
+  .navigation-section {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    padding: 2.25rem;
-    padding: 0;
-    margin: 0;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
   }
 
   p {

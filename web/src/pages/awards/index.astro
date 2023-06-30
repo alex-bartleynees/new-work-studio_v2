@@ -1,0 +1,26 @@
+---
+import ContactMenu from "../../components/contact-menu.astro";
+import "../../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Awards | Tim Nees Architects</title>
+  </head>
+  <body class="body__awards backdrop">
+    <ContactMenu />
+  </body>
+</html>
+
+<style>
+  .body__awards {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-end;
+  }
+</style>

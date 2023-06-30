@@ -1,0 +1,83 @@
+---
+import { urlForImage } from "../../utilities/urlForImage";
+const { image } = Astro.props;
+---
+
+<div class="image-container">
+    <img
+        class="image"
+        src={urlForImage(image).width(800).height(800).url()}
+        alt={image.alt}
+    />
+    <div class="image-info">
+        <p>{image.title}</p>
+        <p>View Project</p>
+    </div>
+</div>
+
+<style lang="scss">
+    .image-container {
+        cursor: pointer;
+        position: relative;
+        max-width: 40rem;
+
+        &:hover .image-info {
+            opacity: 1;
+        }
+
+        &:hover:after {
+            content: "";
+            position: absolute;
+            height: 99.5%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: all 0.5s;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        @media (hover: none) {
+            &:after {
+                content: "";
+                position: absolute;
+                height: 99.5%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                transition: all 0.5s;
+                background: rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        backface-visibility: hidden;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .image-info {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        position: absolute;
+        color: #fff;
+        top: 1rem;
+        left: 1rem;
+        font-size: 1.25rem;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 90%;
+
+        @media (hover: none) {
+            opacity: 1;
+            height: 95%;
+        }
+    }
+</style>
