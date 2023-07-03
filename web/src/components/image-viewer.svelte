@@ -22,18 +22,33 @@
   };
 
   const openModal = () => {
-    const modal = document.querySelector(".modal");
-    modal.classList.add("is-active");
+    const modalBackground = document.querySelector(".popup__background");
+    const modal = document.querySelector(".popup");
+    modal.classList.remove("hide");
+    modalBackground.classList.remove("hide");
+    const popupBtn = document.querySelector(".popup__btn");
+    const background = document.querySelector(".popup__background");
+    popupBtn.addEventListener("click", closeModal);
+    background.addEventListener("click", closeModal);
+  };
+
+  const closeModal = () => {
+    const modalBackground = document.querySelector(".popup__background");
+    const modal = document.querySelector(".popup");
+    modal.classList.add("hide");
+    modalBackground.classList.add("hide");
   };
 </script>
 
 <div class="image-container">
   {#key imageIndex}
-    <img
-      class="image"
-      src={urlFor(images[imageIndex]).width(1200).height(800).url()}
-      alt={images[0].alt}
-    />
+    <button class="image-modal-button" on:click={openModal}>
+      <img
+        class="image"
+        src={urlFor(images[imageIndex]).width(1200).height(800).url()}
+        alt={images[imageIndex].alt}
+      />
+    </button>
   {/key}
   <div class="info">
     <p class="image-credits">{images[imageIndex].credits ?? ""}</p>
@@ -50,7 +65,19 @@
   <a class="projects-link" href="/projects"><h4>projects</h4></a>
 </div>
 
+<div class="popup__background hide">&nbsp;</div>
+<div class="popup hide">
+  <span class="popup__btn">&nbsp;</span>
+  <img src={urlFor(images[imageIndex]).url()} alt={images[imageIndex].alt} />
+</div>
+
 <style lang="scss">
+  .image-modal-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
   .next-image {
     background: none;
     border: none;
@@ -62,7 +89,7 @@
   }
 
   .image-container {
-    height: 50rem;
+    height: 100%;
     display: flex;
     align-items: flex-end;
     flex-direction: column;
@@ -80,7 +107,7 @@
   }
 
   .image {
-    height: 100%;
+    max-height: 50rem;
     object-fit: contain;
   }
 
@@ -118,5 +145,66 @@
     text-decoration: none;
     margin-block: 2rem;
     margin-inline-end: 0.5rem;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 8000;
+
+    img {
+      max-width: 80vw;
+      max-height: 80vh;
+    }
+
+    &__btn {
+      right: -15px;
+      top: -15px;
+      position: absolute;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        position: absolute;
+        right: 15px;
+        content: " ";
+        height: 2px;
+        width: 33px;
+        background-color: #333;
+        margin-left: -2.5rem;
+      }
+
+      &::before {
+        transform: rotate(135deg);
+      }
+      &::after {
+        transform: rotate(-135deg);
+      }
+    }
+
+    &__background {
+      background-color: rgba(220, 220, 220, 0.8);
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      transition: all 0.3s;
+
+      @supports (-webkit-backdrop-filter: blur(1rem)) or
+        (backdrop-filter: blur(1rem)) {
+        -webkit-backdrop-filter: blur(1rem);
+        backdrop-filter: blur(1rem);
+        background-color: rgba(220, 220, 220, 0.3);
+      }
+    }
   }
 </style>
