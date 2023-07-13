@@ -6,24 +6,24 @@ import "../../styles/global.css";
 import { useSanityClient } from "astro-sanity";
 
 export async function getStaticPaths() {
-    const projects = await useSanityClient().fetch(`*[_type == "projects"]`);
-
-    return projects.map((project) => {
+    const awards = await useSanityClient().fetch(`*[_type == "awards"]`);
+    return awards.map((award) => {
         return {
-            params: { slug: project.slug.current },
+            params: { slug: award.slug.current },
             props: {
-                project,
-                projects,
+                award,
+                awards,
             },
         };
     });
 }
 
-const { project, projects } = Astro.props;
-const projectIndex = projects.findIndex(
-    (p) => p.slug.current === project.slug.current
+const { award, awards } = Astro.props;
+console.log(award);
+const awardIndex = awards.findIndex(
+    (p) => p.slug.current === award.slug.current
 );
-const nextProject = projects[projectIndex + 1] || projects[0];
+const nextAward = awards[awardIndex + 1] || awards[0];
 ---
 
 <html lang="en">
@@ -32,18 +32,17 @@ const nextProject = projects[projectIndex + 1] || projects[0];
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{project.title} | Tim Nees Architects</title>
+        <title>{award.title} | Tim Nees Architects</title>
     </head>
     <body class="backdrop">
         <TitleLink link="/" />
         <ImageViewer
             client:load
-            images={project.images}
-            nextProject={nextProject}
-            project={project}
-            keyword="project"
+            images={award.images}
+            nextProject={nextAward}
+            project={award}
+            keyword="award"
         />
-
         <ContactMenu />
     </body>
 </html>

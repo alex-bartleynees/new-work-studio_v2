@@ -1,6 +1,13 @@
 ---
+import { useSanityClient } from "astro-sanity";
 import ContactMenu from "../../components/contact-menu.astro";
 import "../../styles/global.css";
+import ImageWrapper from "../../components/image-wrapper.astro";
+import TitleLink from "../../components/title-link.astro";
+
+const awards = await useSanityClient().fetch(
+  `*[_type == "awards"][0..24]  | order(_createdAt desc)`
+);
 ---
 
 <html lang="en">
@@ -12,15 +19,36 @@ import "../../styles/global.css";
     <title>Awards | Tim Nees Architects</title>
   </head>
   <body class="body__awards backdrop">
+    <TitleLink link="/" />
+    <section class="awards">
+      {
+        awards.map((award) => (
+          <a href={`awards/${award.slug.current}`}>
+            <ImageWrapper image={award.images[0]} keyword="Award" />
+          </a>
+        ))
+      }
+    </section>
     <ContactMenu />
   </body>
 </html>
 
-<style>
+<style lang="scss">
   .body__awards {
+    align-items: flex-end;
     display: flex;
     flex-direction: column;
     position: relative;
-    align-items: flex-end;
+  }
+
+  .awards {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    height: 100%;
+    margin: auto;
+    max-width: 110rem;
+    width: 100%;
+    justify-items: center;
   }
 </style>

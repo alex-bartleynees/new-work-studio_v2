@@ -1,6 +1,6 @@
 ---
 import { urlForImage } from "../../utilities/urlForImage";
-const { image } = Astro.props;
+const { image, keyword } = Astro.props;
 ---
 
 <div class="image-container">
@@ -11,7 +11,7 @@ const { image } = Astro.props;
     />
     <div class="image-info">
         <p>{image.title}</p>
-        <p>View Project</p>
+        <p>View {keyword}</p>
     </div>
 </div>
 

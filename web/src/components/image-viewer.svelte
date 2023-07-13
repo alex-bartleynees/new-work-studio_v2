@@ -6,6 +6,8 @@
   export let images;
   export let project;
   export let nextProject;
+  export let keyword;
+  const keywordPlural = keyword + "s";
 
   let imageIndex = 0;
 
@@ -53,22 +55,27 @@
   <div class="info">
     <p class="image-credits">{images[imageIndex].credits ?? ""}</p>
     <div class="details">
-      <button class="next-image" on:click={nextImage}><p>next image</p></button>
+      {#if images.length > 1}
+        <button class="next-image" on:click={nextImage}
+          ><p>next image</p></button
+        >
+      {/if}
       <button class="next-image" on:click={goToNextProject}
-        ><p>next project</p></button
+        ><p>next {keyword}</p></button
       >
 
       <p class="project-title">{project.title}</p>
       <p>{project.description ?? ""}</p>
     </div>
   </div>
-  <a class="projects-link" href="/projects"><h4>projects</h4></a>
+  <a class="projects-link" href="/{keywordPlural}"><h4>{keywordPlural}</h4></a>
 </div>
 
 <div class="popup__background hide">&nbsp;</div>
 <div class="popup hide">
   <span class="popup__btn">&nbsp;</span>
   <img src={urlFor(images[imageIndex]).url()} alt={images[imageIndex].alt} />
+  <p class="image-credits">{images[imageIndex].credits ?? ""}</p>
 </div>
 
 <style lang="scss">
@@ -93,7 +100,7 @@
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    margin-block: 2rem;
+    margin-block: 4rem;
     margin-inline: 6rem;
     max-width: 1200px;
 

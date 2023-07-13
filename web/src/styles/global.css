@@ -141,3 +141,7 @@ p {
     padding: 1.25rem;
   }
 }
+
+.profile-text > p {
+  margin-block: 0.5rem;
+}
