@@ -23,7 +23,7 @@ const awards = await useSanityClient().fetch(
     <section class="awards">
       {
         awards.map((award) => (
-          <a href={`awards/${award.slug.current}`}>
+          <a href={`${award.slug.current}`}>
             <ImageWrapper image={award.images[0]} keyword="Award" />
           </a>
         ))
