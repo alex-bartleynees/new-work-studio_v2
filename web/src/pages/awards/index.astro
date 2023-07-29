@@ -45,7 +45,7 @@ const awards = await useSanityClient().fetch(
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: auto;
+    grid-auto-rows: min-content;
     height: 100%;
     margin: auto;
     max-width: 110rem;
