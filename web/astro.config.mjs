@@ -14,4 +14,8 @@ export default defineConfig({
     }),
     svelte(),
   ],
+  compressHTML: true,
+  build: {
+    format: 'file',
+  }
 });
