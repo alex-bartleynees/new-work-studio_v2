@@ -4,34 +4,26 @@ import ContactMenu from "../../components/contact-menu.astro";
 import "../../styles/global.css";
 import ImageWrapper from "../../components/image-wrapper.astro";
 import TitleLink from "../../components/title-link.astro";
+import Layout from "../../components/layout.astro";
 
 const awards = await useSanityClient().fetch(
   `*[_type == "awards"][0..24]  | order(_createdAt desc)`
 );
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Awards | Tim Nees Architects</title>
-  </head>
-  <body class="body__awards backdrop">
-    <TitleLink link="/" />
-    <section class="awards">
-      {
-        awards.map((award) => (
-          <a href={`awards/${award.slug.current}`}>
-            <ImageWrapper image={award.images[0]} keyword="Award" />
-          </a>
-        ))
-      }
-    </section>
-    <ContactMenu />
-  </body>
-</html>
+<Layout title="Awards | Tim Nees Architects" bodyClass="body__awards backdrop">
+  <TitleLink link="/" />
+  <section class="awards">
+    {
+      awards.map((award) => (
+        <a href={`awards/${award.slug.current}`}>
+          <ImageWrapper image={award.images[0]} keyword="Award" />
+        </a>
+      ))
+    }
+  </section>
+  <ContactMenu />
+</Layout>
 
 <style lang="scss">
   .body__awards {

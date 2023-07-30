@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
+const { isMobile } = Astro.props;
 ---
 
-<menu class="contact-menu">
+<menu class={`contact-menu ${isMobile && "mobile"}`}>
   <p class="menu-item"><a href="mailto:tim@timneesarchitect.com">contact</a></p>
   <h4 class="menu-item">
     <a href="https://www.instagram.com/timneesarchitect/" target="_blank"
@@ -22,7 +23,7 @@ import "../styles/global.css";
   </h4>
 </menu>
 
-<style>
+<style lang="scss">
   menu {
     display: flex;
     flex-direction: column;
@@ -37,5 +38,11 @@ import "../styles/global.css";
   a {
     text-decoration: none;
     color: #ffffff;
+  }
+
+  @media (max-width: 600px) {
+    .mobile {
+      margin-inline-end: 0;
+    }
   }
 </style>

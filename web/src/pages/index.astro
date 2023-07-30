@@ -2,35 +2,24 @@
 import "../styles/global.css";
 import ContactMenu from "../components/contact-menu.astro";
 import NavigationMenu from "../components/navigation-menu.astro";
+import Layout from "../components/layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Tim Nees Architects New Work Studio architecture design residential architecture
-     home design house plans custom home design architectural service residential architexts modern home diesn green architecture
-     " />
-    <title>Home | Tim Nees Architects</title>
-  </head>
-  <body class="body__homepage backdrop">
-    <div class="backdrop">
-      <div class="heading">
-        <h1 class="main-heading">newworkstudio/&nbsp;</h1>
-        <h2 class="main-heading">timneesarchitect</h2>
-      </div>
-      <article class="navigation">
-        <NavigationMenu />
+<Layout title="Home | Tim Nees Architects" bodyClass="body__homepage backdrop">
+  <div class="backdrop">
+    <section class="heading">
+      <h1 class="main-heading">newworkstudio/&nbsp;</h1>
+      <h2 class="main-heading">timneesarchitect</h2>
+    </section>
+    <article class="navigation">
+      <NavigationMenu />
 
-        <ContactMenu />
-      </article>
-    </div>
-  </body>
-</html>
+      <ContactMenu />
+    </article>
+  </div>
+</Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
   .body__homepage::before {
     content: "";
     position: absolute;

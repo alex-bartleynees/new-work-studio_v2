@@ -1,6 +1,7 @@
 ---
 import ContactMenu from "../../components/contact-menu.astro";
 import ImageWrapper from "../../components/image-wrapper.astro";
+import Layout from "../../components/layout.astro";
 import TitleLink from "../../components/title-link.astro";
 import "../../styles/global.css";
 import { useSanityClient } from "astro-sanity";
@@ -19,45 +20,35 @@ const projects = data.map((project) => {
 });
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Projects | Tim Nees Architects</title>
-  </head>
-  <body class="backdrop">
-    <TitleLink link="/" />
-    <section class="projects">
-      {
-        projects.map((project) => (
-          <a href={`projects/${project.slug}`}>
-            <ImageWrapper image={project.images[0]} keyword="Project" />
-          </a>
-        ))
-      }
-    </section>
-
-    <ContactMenu />
-  </body>
-
-  <style lang="scss">
-    .projects {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin: auto;
-      width: 100%;
-      height: 100%;
-      padding: 0 1rem;
-      gap: 2rem;
-
-      @media (max-width: 768px) {
-        flex-wrap: wrap;
-        padding: 1rem;
-        justify-content: center;
-      }
+<Layout title="Projects | Tim Nees Architects" bodyClass="backdrop">
+  <TitleLink link="/" />
+  <section class="projects">
+    {
+      projects.map((project) => (
+        <a href={`projects/${project.slug}`}>
+          <ImageWrapper image={project.images[0]} keyword="Project" />
+        </a>
+      ))
     }
-  </style>
-</html>
+  </section>
+  <ContactMenu />
+</Layout>
+
+<style lang="scss">
+  .projects {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      padding: 1rem;
+      justify-content: center;
+    }
+  }
+</style>

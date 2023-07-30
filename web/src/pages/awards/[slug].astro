@@ -1,48 +1,40 @@
 ---
 import ContactMenu from "../../components/contact-menu.astro";
 import ImageViewer from "../../components/image-viewer.svelte";
+import Layout from "../../components/layout.astro";
 import TitleLink from "../../components/title-link.astro";
 import "../../styles/global.css";
 import { useSanityClient } from "astro-sanity";
 
 export async function getStaticPaths() {
-    const awards = await useSanityClient().fetch(`*[_type == "awards"]`);
-    return awards.map((award) => {
-        return {
-            params: { slug: award.slug.current },
-            props: {
-                award,
-                awards,
-            },
-        };
-    });
+  const awards = await useSanityClient().fetch(`*[_type == "awards"]`);
+  return awards.map((award) => {
+    return {
+      params: { slug: award.slug.current },
+      props: {
+        award,
+        awards,
+      },
+    };
+  });
 }
 
 const { award, awards } = Astro.props;
 
 const awardIndex = awards.findIndex(
-    (p) => p.slug.current === award.slug.current
+  (p) => p.slug.current === award.slug.current
 );
 const nextAward = awards[awardIndex + 1] || awards[0];
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{award.title} | Tim Nees Architects</title>
-    </head>
-    <body class="backdrop">
-        <TitleLink link="/" />
-        <ImageViewer
-            client:load
-            images={award.images}
-            nextProject={nextAward}
-            project={award}
-            keyword="award"
-        />
-        <ContactMenu />
-    </body>
-</html>
+<Layout title={`${award.title} | Tim Nees Architects}`} bodyClass="backdrop">
+  <TitleLink link="/" />
+  <ImageViewer
+    client:load
+    images={award.images}
+    nextProject={nextAward}
+    project={award}
+    keyword="award"
+  />
+  <ContactMenu />
+</Layout>
