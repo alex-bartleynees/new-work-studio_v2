@@ -109,7 +109,7 @@
     }
 
     @media (max-width: 800px) {
-      margin: auto;
+      margin-inline: 1rem;
     }
   }
 
