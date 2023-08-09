@@ -16,7 +16,10 @@ const data = await useSanityClient().fetch(`*[_type == "profile"][0]`);
   <div class="backdrop">
     <TitleLink link="/" />
     <section class="profile-text">
-      <Fragment set:html={sanityPortableText(data.content)} />
+      <Fragment
+        class:list="profile-text__list"
+        set:html={sanityPortableText(data.content)}
+      />
     </section>
 
     <ContactMenu />
@@ -38,6 +41,11 @@ const data = await useSanityClient().fetch(`*[_type == "profile"][0]`);
     filter: grayscale(100%);
     z-index: -1;
   }
+
+  .profile-text > * {
+    margin-block: 1rem;
+    color: #ffffff;
+  }
 </style>
 
 <style>
@@ -48,10 +56,5 @@ const data = await useSanityClient().fetch(`*[_type == "profile"][0]`);
     padding: 5rem;
     text-align: justify;
     flex-grow: 1;
-  }
-
-  p {
-    color: #ffffff;
-    margin-block: 1rem;
   }
 </style>

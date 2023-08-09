@@ -47,7 +47,7 @@
     <button class="image-modal-button" on:click={openModal}>
       <img
         class="image"
-        src={urlFor(images[imageIndex]).width(1200).height(800).url()}
+        src={urlFor(images[imageIndex]).width(1200).url()}
         alt={images[imageIndex].alt}
       />
     </button>
