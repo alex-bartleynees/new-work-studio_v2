@@ -3,6 +3,7 @@
 </script>
 
 <script>
+  import { swipe } from "svelte-gestures";
   export let images;
   export let project;
   export let nextProject;
@@ -16,6 +17,23 @@
       imageIndex++;
     } else {
       imageIndex = 0;
+    }
+  };
+
+  const previousImage = () => {
+    if (imageIndex > 0) {
+      imageIndex--;
+    } else {
+      imageIndex = images.length - 1;
+    }
+  };
+
+  const onSwipe = (event) => {
+    const direction = event.detail.direction;
+    if (direction === "left") {
+      nextImage();
+    } else if (direction === "right") {
+      previousImage();
     }
   };
 
@@ -42,7 +60,11 @@
   };
 </script>
 
-<div class="image-container">
+<div
+  class="image-container"
+  use:swipe={{ timeframe: 100, minSwipeDistance: 30, touchAction: "pan-y" }}
+  on:swipe={onSwipe}
+>
   {#key imageIndex}
     <button class="image-modal-button" on:click={openModal}>
       <img
@@ -53,7 +75,14 @@
     </button>
   {/key}
   <div class="info">
-    <p class="image-credits">{images[imageIndex].credits ?? ""}</p>
+    <div class="credits">
+      {#if images.length > 1}
+        <button class="next-image" on:click={previousImage}
+          ><p>previous image</p></button
+        >
+      {/if}
+      <p class="image-credits">{images[imageIndex].credits ?? ""}</p>
+    </div>
     <div class="details">
       {#if images.length > 1}
         <button class="next-image" on:click={nextImage}
@@ -84,6 +113,7 @@
     border: none;
     padding: 0;
     cursor: pointer;
+    width: 100%;
   }
   .next-image {
     background: none;
@@ -116,14 +146,21 @@
   .image {
     max-height: 50rem;
     object-fit: contain;
+    width: 100%;
   }
 
   .info {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     flex-basis: 100%;
     width: 100%;
+  }
+
+  .credits {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .details {
