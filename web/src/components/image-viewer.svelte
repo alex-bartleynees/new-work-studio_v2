@@ -145,7 +145,6 @@
 
   .image {
     max-height: 50rem;
-    object-fit: contain;
     width: 100%;
   }
 
