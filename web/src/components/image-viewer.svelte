@@ -3,7 +3,7 @@
 </script>
 
 <script>
-  import { swipe } from "svelte-gestures";
+  import { swipeable } from "@react2svelte/swipeable";
   export let images;
   export let project;
   export let nextProject;
@@ -29,10 +29,10 @@
   };
 
   const onSwipe = (event) => {
-    const direction = event.detail.direction;
-    if (direction === "left") {
+    const direction = event.detail.dir;
+    if (direction === "Left") {
       nextImage();
-    } else if (direction === "right") {
+    } else if (direction === "Right") {
       previousImage();
     }
   };
@@ -60,11 +60,7 @@
   };
 </script>
 
-<div
-  class="image-container"
-  use:swipe={{ timeframe: 100, minSwipeDistance: 30, touchAction: "pan-y" }}
-  on:swipe={onSwipe}
->
+<div class="image-container" use:swipeable on:swiped={onSwipe}>
   {#key imageIndex}
     <button class="image-modal-button" on:click={openModal}>
       <img
