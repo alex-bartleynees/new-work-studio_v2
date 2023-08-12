@@ -4,12 +4,18 @@
 
 <script>
   import { swipeable } from "@react2svelte/swipeable";
+  import { onMount } from "svelte";
   export let images;
   export let project;
   export let nextProject;
   export let keyword;
+  let isMobile = false;
+
+  onMount(() => {
+    isMobile = window && window.innerWidth <= 600;
+  });
+
   const keywordPlural = keyword + "s";
-  const isMobile = window.innerWidth <= 600;
 
   let imageIndex = 0;
 
