@@ -128,7 +128,7 @@
     flex-direction: column;
     margin-block: 4rem;
     margin-inline: 6rem;
-    max-width: 1200px;
+    max-width: 67rem;
 
     @media (min-width: 1800px) {
       height: 65rem;
