@@ -9,6 +9,7 @@
   export let nextProject;
   export let keyword;
   const keywordPlural = keyword + "s";
+  const isMobile = window.innerWidth <= 600;
 
   let imageIndex = 0;
 
@@ -42,6 +43,9 @@
   };
 
   const openModal = () => {
+    if (isMobile) {
+      return;
+    }
     const modalBackground = document.querySelector(".popup__background");
     const modal = document.querySelector(".popup");
     modal.classList.remove("hide");
