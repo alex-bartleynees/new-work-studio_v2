@@ -141,7 +141,6 @@
 
   .image {
     max-height: 50rem;
-    width: 100%;
   }
 
   .info {
