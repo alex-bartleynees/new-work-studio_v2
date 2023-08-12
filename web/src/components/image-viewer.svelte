@@ -135,7 +135,7 @@
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    margin-block: 4rem;
+    margin-block: 2rem;
     margin-inline: 6rem;
 
     @media (min-width: 1800px) {
