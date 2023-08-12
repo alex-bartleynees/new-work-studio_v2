@@ -109,7 +109,6 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    width: 100%;
   }
   .next-image {
     background: none;
