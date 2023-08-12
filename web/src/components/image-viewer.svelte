@@ -141,8 +141,6 @@
 
   .image {
     max-height: 50rem;
-    width: 100%;
-    object-fit: contain;
   }
 
   .info {
