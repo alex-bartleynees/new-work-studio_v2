@@ -139,7 +139,7 @@
   }
 
   .image {
-    max-height: 50rem;
+    max-height: 60rem;
   }
 
   .info {
