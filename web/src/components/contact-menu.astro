@@ -4,21 +4,15 @@ const { isMobile } = Astro.props;
 ---
 
 <menu class={`contact-menu ${isMobile && "mobile"}`}>
-  <p class="menu-item"><a href="mailto:tim@timneesarchitect.com">contact</a></p>
+  <p class="menu-item"><a href="/profile">profile</a></p>
+  <p class="menu-item"><a href="/projects">projects</a></p>
+  <p class="menu-item"><a href="/awards">awards</a></p>
+  <p class="menu-item">
+    <a href="mailto:tim@timneesarchitect.com">tim@timneesarchitect.com</a>
+  </p>
   <h4 class="menu-item">
     <a href="https://www.instagram.com/timneesarchitect/" target="_blank"
       >instagram</a
-    >
-  </h4>
-  <h4 class="menu-item">
-    <a href="https://nz.linkedin.com/in/timneesarchitect" target="_blank"
-      >linkedIn</a
-    >
-  </h4>
-  <h4 class="menu-item">
-    <a
-      href="https://www.facebook.com/newworkstudiotimneesarchitects/"
-      target="_blank">facebook</a
     >
   </h4>
 </menu>
@@ -26,10 +20,19 @@ const { isMobile } = Astro.props;
 <style lang="scss">
   menu {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    margin-inline-end: 5rem;
-    margin-block: 2rem;
+    flex-direction: row;
+    gap: 1rem;
+    align-self: flex-start;
+    padding-inline-start: 1rem;
+    padding-block-end: 2rem;
+    margin-block: 0rem;
+    // position: absolute;
+    // bottom: 1rem;
+
+    @media (max-width: 1100px) {
+      position: relative;
+      margin-block: 1rem;
+    }
   }
   p.menu-item {
     font-size: 1.777rem;
@@ -40,9 +43,14 @@ const { isMobile } = Astro.props;
     color: #000000;
   }
 
-  @media (max-width: 600px) {
-    .mobile {
-      margin-inline-end: 1rem;
-    }
+  .home {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-inline-end: 5rem;
+    margin-block: 2rem;
+    position: relative;
+    padding-inline-start: 4rem;
+    padding-block-end: 0;
   }
 </style>
