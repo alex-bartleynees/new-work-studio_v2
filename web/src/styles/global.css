@@ -48,7 +48,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100svh;
+  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
