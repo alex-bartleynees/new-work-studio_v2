@@ -135,7 +135,7 @@ p {
   flex-direction: column;
   position: relative;
   align-items: flex-end;
-  min-height: 100lvh;
+  min-height: 100vh;
   width: 100%;
   justify-content: space-between;
 }
