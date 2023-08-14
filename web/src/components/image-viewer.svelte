@@ -44,10 +44,6 @@
     }
   };
 
-  const goToNextProject = () => {
-    window.location.href = nextProject.slug.current;
-  };
-
   const openModal = () => {
     if (isMobile) {
       return;
@@ -87,7 +83,6 @@
           ><p>previous image</p></button
         >
       {/if}
-      <p class="image-credits">{images[imageIndex].credits ?? ""}</p>
     </div>
     <div class="details">
       {#if images.length > 1}
@@ -95,22 +90,20 @@
           ><p>next image</p></button
         >
       {/if}
-      <button class="next-image" on:click={goToNextProject}
-        ><p>next {keyword}</p></button
+      <a class="next-image" href={nextProject.slug.current}>
+        <p>next {keyword}</p></a
       >
 
       <p class="project-title">{project.title}</p>
       <p>{project.description ?? ""}</p>
     </div>
   </div>
-  <a class="projects-link" href="/{keywordPlural}"><h4>{keywordPlural}</h4></a>
 </div>
 
 <div class="popup__background hide">&nbsp;</div>
 <div class="popup hide">
   <span class="popup__btn">&nbsp;</span>
   <img src={urlFor(images[imageIndex]).url()} alt={images[imageIndex].alt} />
-  <p class="image-credits">{images[imageIndex].credits ?? ""}</p>
 </div>
 
 <style lang="scss">
@@ -135,7 +128,7 @@
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    margin-block: 2rem;
+    margin-block: auto;
     margin-inline: 6rem;
 
     @media (min-width: 1800px) {
@@ -169,6 +162,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    max-width: 50ch;
 
     @media (max-width: 800px) {
       margin-inline-end: 0.5rem;
@@ -177,10 +171,6 @@
 
   .project-title {
     margin-block-start: 1rem;
-  }
-
-  .image-credits {
-    margin-block-end: auto;
   }
 
   p {

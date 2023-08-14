@@ -1,20 +1,24 @@
 ---
 import "../styles/global.css";
-const { isMobile } = Astro.props;
 ---
 
-<menu class={`contact-menu ${isMobile && "mobile"}`}>
-  <p class="menu-item"><a href="/profile">profile</a></p>
+<menu class={`contact-menu`}>
+  <p class=`menu-item`>
+    <a href="/profile">profile</a>
+  </p>
   <p class="menu-item"><a href="/projects">projects</a></p>
   <p class="menu-item"><a href="/awards">awards</a></p>
   <p class="menu-item">
     <a href="mailto:tim@timneesarchitect.com">tim@timneesarchitect.com</a>
   </p>
-  <h4 class="menu-item">
-    <a href="https://www.instagram.com/timneesarchitect/" target="_blank"
+  <p class="menu-item">
+    <a href="tel:+6421846333">+64 21 846333</a>
+  </p>
+  <p class="menu-item">
+    <a href="https://www.instagram.com/timothygreignees/" target="_blank"
       >instagram</a
     >
-  </h4>
+  </p>
 </menu>
 
 <style lang="scss">
@@ -28,29 +32,39 @@ const { isMobile } = Astro.props;
     margin-block: 0rem;
     // position: absolute;
     // bottom: 1rem;
+    flex-wrap: wrap;
 
     @media (max-width: 1100px) {
       position: relative;
-      margin-block: 1rem;
+      bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      margin-block: 2rem;
     }
   }
   p.menu-item {
     font-size: 1.777rem;
+    position: relative;
+  }
+
+  .menu-item::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transition: width 0.2s ease-in-out;
+  }
+
+  .menu-item:hover::after {
+    width: 100%;
   }
 
   a {
     text-decoration: none;
     color: #000000;
-  }
-
-  .home {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    margin-inline-end: 5rem;
-    margin-block: 2rem;
-    position: relative;
-    padding-inline-start: 4rem;
-    padding-block-end: 0;
   }
 </style>

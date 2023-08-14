@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+
 const { title, bodyClass } = Astro.props;
 ---
 
@@ -17,6 +19,8 @@ const { title, bodyClass } = Astro.props;
      "
     />
     <title>{title ?? "Tim Nees Architects"}</title>
+
+    <ViewTransitions />
   </head>
   <body class={bodyClass}>
     <slot />

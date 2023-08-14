@@ -16,6 +16,9 @@ export default defineConfig({
   ],
   compressHTML: true,
   build: {
-    format: 'file',
-  }
+    format: "file",
+  },
+  experimental: {
+    viewTransitions: true,
+  },
 });

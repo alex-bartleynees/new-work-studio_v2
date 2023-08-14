@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/svelte": "^3.0.0",
     "@react2svelte/swipeable": "^0.1.4",
-    "astro": "^2.7.0",
+    "astro": "^2.10.7",
     "astro-sanity": "^1.1.7",
     "sass": "^1.63.3",
     "svelte": "^3.59.2"
