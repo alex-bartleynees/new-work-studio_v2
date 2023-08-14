@@ -9,10 +9,7 @@ import Layout from "../components/layout.astro";
 const data = await useSanityClient().fetch(`*[_type == "profile"][0]`);
 ---
 
-<Layout
-  title="Profile | Tim Nees Architects"
-  bodyClass="body__profile backdrop"
->
+<Layout title="Profile | Tim Nees Architects" bodyClass="body__profile">
   <div class="backdrop">
     <TitleLink link="/" />
     <section class="profile-text">
