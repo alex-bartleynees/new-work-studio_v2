@@ -15,32 +15,14 @@
     isMobile = window && window.innerWidth <= 600;
   });
 
-  const keywordPlural = keyword + "s";
-
   let imageIndex = 0;
-
-  const nextImage = () => {
-    if (imageIndex < images.length - 1) {
-      imageIndex++;
-    } else {
-      imageIndex = 0;
-    }
-  };
-
-  const previousImage = () => {
-    if (imageIndex > 0) {
-      imageIndex--;
-    } else {
-      imageIndex = images.length - 1;
-    }
-  };
 
   const onSwipe = (event) => {
     const direction = event.detail.dir;
     if (direction === "Left") {
-      nextImage();
+      selectImage(imageIndex + 1);
     } else if (direction === "Right") {
-      previousImage();
+      selectImage(imageIndex - 1);
     }
   };
 
@@ -64,42 +46,63 @@
     modal.classList.add("hide");
     modalBackground.classList.add("hide");
   };
+
+  const selectImage = (index) => {
+    if (index < 0) {
+      index = images.length - 1;
+    } else if (index > images.length - 1) {
+      index = 0;
+    }
+    imageIndex = index;
+    images = images.map((image, i) => {
+      if (i === index) {
+        return { ...image, selected: true };
+      } else {
+        return { ...image, selected: false };
+      }
+    });
+  };
+
+  selectImage(imageIndex);
 </script>
 
-<div class="image-container" use:swipeable on:swiped={onSwipe}>
-  {#key imageIndex}
+{#each images as image, i (image._key)}
+  <div
+    class="image-container hide {image.selected ? 'active' : ''}"
+    use:swipeable
+    on:swiped={onSwipe}
+  >
     <button class="image-modal-button" on:click={openModal}>
       <img
         class="image"
-        src={urlFor(images[imageIndex]).width(1200).url()}
-        alt={images[imageIndex].alt}
+        src={urlFor(image).width(1200).url()}
+        alt={image.alt}
       />
     </button>
-  {/key}
-  <div class="info">
-    <div class="credits">
-      {#if images.length > 1}
-        <button class="next-image" on:click={previousImage}
-          ><p>previous image</p></button
+    <div class="info">
+      <div class="credits">
+        {#if images.length > 1}
+          <button class="next-image" on:click={() => selectImage(i - 1)}
+            ><p>previous image</p></button
+          >
+        {/if}
+      </div>
+      <div class="details">
+        {#if images.length > 1}
+          <button class="next-image" on:click={() => selectImage(i + 1)}
+            ><p>next image</p></button
+          >
+        {/if}
+        <a class="next-image" href={nextProject.slug.current}>
+          <p>next {keyword}</p></a
         >
-      {/if}
-    </div>
-    <div class="details">
-      {#if images.length > 1}
-        <button class="next-image" on:click={nextImage}
-          ><p>next image</p></button
-        >
-      {/if}
-      <a class="next-image" href={nextProject.slug.current}>
-        <p>next {keyword}</p></a
-      >
 
-      <p class="project-title">{project.title}</p>
-      <p>{project.description ?? ""}</p>
+        <p class="project-title">{project.title}</p>
+        <p>{project.description ?? ""}</p>
+      </div>
     </div>
   </div>
-</div>
-
+{/each}
 <div class="popup__background hide">&nbsp;</div>
 <div class="popup hide">
   <span class="popup__btn">&nbsp;</span>
@@ -177,12 +180,6 @@
     text-align: end;
   }
 
-  .projects-link {
-    text-decoration: none;
-    margin-block: 2rem;
-    margin-inline-end: 0.5rem;
-  }
-
   .hide {
     display: none;
   }
@@ -242,5 +239,9 @@
         background-color: rgba(220, 220, 220, 0.3);
       }
     }
+  }
+
+  .active {
+    display: flex;
   }
 </style>
