@@ -1,0 +1,68 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<header class="heading">
+  <a class="home-link" href="/"
+    ><h1 class="main-heading">newworkstudio/</h1><h1>timneesarchitect</h1></a
+  >
+
+  <div class="navigation">
+    <a href="/work"
+      ><h2 class={currentPath.includes("work") ? "active" : ""}>work</h2></a
+    >
+    <a href="/profile"
+      ><h2 class={currentPath === "profile" ? "active" : ""}>profile</h2></a
+    >
+    <a href="/contact"
+      ><h2 class={currentPath === "contact" ? "active" : ""}>contact</h2></a
+    >
+    <a href="https://www.instagram.com/timothygreignees/" target="_blank"
+      ><h2>instagram</h2></a
+    >
+  </div>
+</header>
+
+<style lang="scss">
+  .home-link {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    font-weight: 200;
+  }
+
+  .active {
+    font-weight: bold;
+  }
+
+  .main-heading {
+    word-wrap: break-word;
+  }
+  .heading {
+    align-self: flex-start;
+    width: min-content;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    z-index: 100;
+    position: relative;
+  }
+
+  .navigation {
+    margin-inline-start: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 900px) {
+      margin-inline-start: 0;
+    }
+  }
+</style>

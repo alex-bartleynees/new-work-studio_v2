@@ -1,5 +1,6 @@
 import projects from './projects'
 import profile from './profile'
-import awards from './awards'
+import contact from './contact'
+import backgrounds from './backgrounds'
 
-export const schemaTypes = [projects, profile, awards]
+export const schemaTypes = [projects, profile, contact, backgrounds]

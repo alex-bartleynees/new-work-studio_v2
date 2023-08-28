@@ -1,13 +1,17 @@
 ---
 import "../styles/global.css";
 
-const { title, bodyClass } = Astro.props;
+const { title, bodyClass, backgroundUrl } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon-32x32.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta
@@ -19,7 +23,7 @@ const { title, bodyClass } = Astro.props;
     />
     <title>{title ?? "Tim Nees Architects"}</title>
   </head>
-  <body class={bodyClass}>
+  <body class={bodyClass} style={`background-image: url(${backgroundUrl})`}>
     <slot />
   </body>
 </html>

@@ -1,10 +1,10 @@
 ---
-import ContactMenu from "../../components/contact-menu.astro";
-import ImageViewer from "../../components/image-viewer.svelte";
 import Layout from "../../components/layout.astro";
-import TitleLink from "../../components/title-link.astro";
 import "../../styles/global.css";
 import { useSanityClient } from "astro-sanity";
+import MainHeader from "../../components/main-header.astro";
+import { Fragment } from "astro/dist/runtime/server";
+import ImageViewer from "../../components/image-viewer.svelte";
 
 export async function getStaticPaths() {
   const projects = await useSanityClient().fetch(`*[_type == "projects"]`);
@@ -25,17 +25,17 @@ const projectIndex = projects.findIndex(
   (p) => p.slug.current === project.slug.current
 );
 const nextProject = projects[projectIndex + 1] || projects[0];
+const previousProject =
+  projects[projectIndex - 1] || projects[projects.length - 1];
 ---
 
-<Layout title={`${project.title} | Tim Nees Architects`} bodyClass="backdrop">
-  <TitleLink link="/" />
+<Layout title={`${project.title} | Tim Nees Architects`}>
+  <MainHeader />
   <ImageViewer
     client:load
+    project={project}
     images={project.images}
     nextProject={nextProject}
-    project={project}
-    keyword="project"
+    previousProject={previousProject}
   />
-
-  <ContactMenu />
 </Layout>

@@ -1,25 +1,16 @@
 ---
 import "../styles/global.css";
-import ContactMenu from "../components/contact-menu.astro";
-import NavigationMenu from "../components/navigation-menu.astro";
+import MainHeader from "../components/main-header.astro";
 import Layout from "../components/layout.astro";
 ---
 
 <Layout title="Home | Tim Nees Architects" bodyClass="body__homepage">
   <div class="backdrop">
-    <section class="heading">
-      <h1 class="main-heading">newworkstudio/&nbsp;</h1>
-      <h2 class="main-heading">timneesarchitects</h2>
-    </section>
-
-    <ContactMenu />
+    <MainHeader />
   </div>
 </Layout>
 
 <style lang="scss" is:global>
-  .backdrop {
-    background-color: rgba(255, 218, 102, 0.6);
-  }
   .body__homepage::before {
     content: "";
     position: absolute;
@@ -33,32 +24,5 @@ import Layout from "../components/layout.astro";
     background-repeat: no-repeat;
     filter: grayscale(100%);
     z-index: -1;
-  }
-  .heading {
-    align-self: flex-end;
-    width: min-content;
-    margin: 5rem 5rem 0 0;
-  }
-
-  .main-heading {
-    font-size: 6.209rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: #000000;
-
-    @media (max-width: 600px) {
-      font-size: 4.209rem;
-    }
-  }
-  .contact {
-    margin-top: 15rem;
-  }
-
-  .navigation {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: space-between;
-    margin-block-start: 20rem;
   }
 </style>

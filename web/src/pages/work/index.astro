@@ -1,0 +1,49 @@
+---
+import { urlFor } from "../../../utilities/urlForImage-client";
+import ImageWrapper from "../../components/image-wrapper.astro";
+import Layout from "../../components/layout.astro";
+import MainHeader from "../../components/main-header.astro";
+import WorkScroll from "../../components/work-scroll.svelte";
+import "../../styles/global.css";
+import { useSanityClient } from "astro-sanity";
+
+const data = await useSanityClient().fetch(
+  `*[_type in ["projects", "backgrounds"]] | order(_createdAt desc)`
+);
+
+const workPageBackground = data.filter(
+  (data) =>
+    data._type === "backgrounds" &&
+    Object.keys(data).includes("workPageBackground")
+);
+
+const projects = data
+  .filter((data) => data._type === "projects")
+  .map((project) => {
+    return {
+      id: project._id,
+      title: project?.title,
+      images: project?.images,
+      description: project?.description,
+      awards: project?.awards,
+      slug: project?.slug.current,
+    };
+  });
+---
+
+<Layout
+  title="Projects | Tim Nees Architects"
+  bodyClass="backdrop backdrop--workpage"
+  backgroundUrl={urlFor(workPageBackground[0]?.workPageBackground)}
+>
+  <MainHeader />
+  <WorkScroll client:load projects={projects} />
+</Layout>
+
+<style lang="scss" is:global>
+  .backdrop--workpage {
+    justify-content: flex-start;
+  }
+</style>
+
+<style lang="scss"></style>

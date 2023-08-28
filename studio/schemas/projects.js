@@ -41,6 +41,17 @@ export default {
               title: 'Description',
             },
             {
+              name: 'orientation',
+              type: 'string',
+              title: 'Orientation',
+              options: {
+                list: [
+                  {title: 'Landscape', value: 'landscape'},
+                  {title: 'Portrait', value: 'portrait'},
+                ],
+              },
+            },
+            {
               name: 'credits',
               type: 'string',
               title: 'Credits',
@@ -51,6 +62,9 @@ export default {
               title: 'Alternative text',
             },
           ],
+          initialValue: {
+            orientation: 'landscape',
+          },
         },
       ],
       options: {
@@ -61,6 +75,11 @@ export default {
       name: 'description',
       type: 'text',
       title: 'Description',
+    },
+    {
+      name: 'awards',
+      type: 'text',
+      title: 'Awards',
     },
   ],
   preview: {
