@@ -13,10 +13,14 @@ const currentPath = pathname.slice(1);
       ><h2 class={currentPath.includes("work") ? "active" : ""}>work</h2></a
     >
     <a href="/profile"
-      ><h2 class={currentPath === "profile" ? "active" : ""}>profile</h2></a
+      ><h2 class={currentPath.includes("profile") ? "active" : ""}>
+        profile
+      </h2></a
     >
     <a href="/contact"
-      ><h2 class={currentPath === "contact" ? "active" : ""}>contact</h2></a
+      ><h2 class={currentPath.includes("contact") ? "active" : ""}>
+        contact
+      </h2></a
     >
     <a href="https://www.instagram.com/timothygreignees/" target="_blank"
       ><h2>instagram</h2></a
