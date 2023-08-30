@@ -3,7 +3,6 @@
 </script>
 
 <script>
-  import { swipeable } from "@react2svelte/swipeable";
   import { onMount } from "svelte";
 
   export let images;
@@ -11,7 +10,6 @@
   export let previousProject;
   export let nextProject;
 
-  console.log(nextProject);
   let body;
   let imagesWithSize;
   let imageIndex = 0;
@@ -30,15 +28,6 @@
       showButton = false;
     }
   }
-
-  const onSwipe = (event) => {
-    const direction = event.detail.dir;
-    if (direction === "Left") {
-      selectImage(imageIndex + 1);
-    } else if (direction === "Right") {
-      selectImage(imageIndex - 1);
-    }
-  };
 
   const selectImage = (index) => {
     if (index < 0) {
