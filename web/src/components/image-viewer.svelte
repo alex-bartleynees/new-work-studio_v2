@@ -90,8 +90,6 @@
   {/each}
 </div>
 
-<!-- <button on:click={() => selectImage(imageIndex - 1)}>Previous</button>
-<button on:click={() => selectImage(imageIndex + 1)}>Next</button> -->
 {#if showButton}
   <div class="back-to-top">
     <a href="#top">
