@@ -55,13 +55,13 @@
         <h3 class="text">{project?.description ?? ""}</h3>
       </div>
 
-      <a href={nextProject.slug.current}>
+      <a href={nextProject.slug.current} title="Next Project">
         <span class="material-symbols-outlined arrow-next-project">
           keyboard_double_arrow_right
         </span>
       </a>
 
-      <a href={previousProject.slug.current}>
+      <a href={previousProject.slug.current} title="Previous Project">
         <span class="material-symbols-outlined arrow-previous-project">
           keyboard_double_arrow_left
         </span>
