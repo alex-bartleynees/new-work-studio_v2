@@ -10,7 +10,7 @@ const data = await useSanityClient().fetch(`*[_type == "profile"][0]`);
 
 <Layout title="Profile | Tim Nees Architects" bodyClass="body__profile">
   <div class="backdrop">
-    <MainHeader />
+    <MainHeader showLogo={true} />
     <section class="profile-text">
       <Fragment
         class:list="profile-text__list"
@@ -45,7 +45,7 @@ const data = await useSanityClient().fetch(`*[_type == "profile"][0]`);
   .profile-text {
     display: flex;
     flex-direction: column;
-    margin-inline: 2rem;
+    margin-inline: 1rem;
     text-align: left;
     flex-grow: 1;
   }
