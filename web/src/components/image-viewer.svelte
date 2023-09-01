@@ -103,7 +103,7 @@
 <style lang="scss">
   .container {
     scroll-snap-type: y mandatory;
-    overflow-y: scroll;
+    overflow-y: hidden
   }
   .portrait {
     object-fit: contain !important;
