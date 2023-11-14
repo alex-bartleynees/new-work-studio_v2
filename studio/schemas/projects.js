@@ -18,6 +18,11 @@ export default {
       },
     },
     {
+      name: 'sortOrder',
+      title: 'Sort Order',
+      type: 'number',
+    },
+    {
       name: 'images',
       type: 'array',
       title: 'Images',
