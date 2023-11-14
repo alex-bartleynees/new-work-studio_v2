@@ -19,6 +19,7 @@ const workPageBackground = data.filter(
 
 const projects = data
   .filter((data) => data._type === "projects")
+  .sort((a, b) => b.sortOrder - a.sortOrder)
   .map((project) => {
     return {
       id: project._id,

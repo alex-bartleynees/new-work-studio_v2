@@ -18,7 +18,7 @@
 <div class="container">
   <section class="projects" bind:this={scrollbar}>
     {#each projects as project}
-      <a href={`work/${project.slug}`}>
+      <a href={`projects/${project.slug}`}>
         <h3>{project.title}</h3>
       </a>
     {/each}
