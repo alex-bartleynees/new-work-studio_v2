@@ -31,7 +31,7 @@
     justify-content: center;
     align-items: center;
     max-width: 95svw;
-    margin-inline: auto;
+    margin-inline: 3.5rem;
   }
 
   .projects {

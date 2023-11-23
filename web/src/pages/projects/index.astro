@@ -8,7 +8,7 @@ import "../../styles/global.css";
 import { useSanityClient } from "astro-sanity";
 
 const data = await useSanityClient().fetch(
-  `*[_type in ["projects", "backgrounds"]] | order(_createdAt desc)`
+  `*[_type in ["projects", "backgrounds"]] | order(sortOrder desc)`
 );
 
 const workPageBackground = data.filter(
@@ -19,7 +19,6 @@ const workPageBackground = data.filter(
 
 const projects = data
   .filter((data) => data._type === "projects")
-  .sort((a, b) => b.sortOrder - a.sortOrder)
   .map((project) => {
     return {
       id: project._id,

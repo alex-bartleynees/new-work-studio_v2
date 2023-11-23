@@ -103,7 +103,7 @@
 <style lang="scss">
   .container {
     scroll-snap-type: y mandatory;
-    overflow-y: hidden
+    overflow-y: hidden;
   }
   .portrait {
     object-fit: contain !important;
@@ -129,6 +129,7 @@
   }
   .details {
     position: absolute;
+    margin-inline: 3.5rem;
   }
 
   .arrow-next-project {
@@ -156,7 +157,7 @@
   .text {
     position: relative;
     z-index: 200;
-    margin: 1rem;
+    margin: 1rem 0;
     max-width: 50ch;
   }
 

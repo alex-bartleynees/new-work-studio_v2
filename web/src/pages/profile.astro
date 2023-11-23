@@ -45,8 +45,9 @@ const data = await useSanityClient().fetch(`*[_type == "profile"][0]`);
   .profile-text {
     display: flex;
     flex-direction: column;
-    margin-inline: 1rem;
+    margin-inline: 3.5rem;
     text-align: left;
     flex-grow: 1;
+    max-width: 125ch;
   }
 </style>
