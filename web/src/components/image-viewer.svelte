@@ -9,6 +9,8 @@
   export let project;
   export let previousProject;
   export let nextProject;
+  export let firstProject;
+  export let lastProject;
 
   let body;
   let imagesWithSize;
@@ -57,12 +59,24 @@
 
       <a href={nextProject.slug.current} title="Next Project">
         <span class="material-symbols-outlined arrow-next-project">
+          keyboard_arrow_right
+        </span>
+      </a>
+
+      <a href={lastProject.slug.current} title="Last Project">
+        <span class="material-symbols-outlined arrow-next-project--last">
           keyboard_double_arrow_right
         </span>
       </a>
 
       <a href={previousProject.slug.current} title="Previous Project">
         <span class="material-symbols-outlined arrow-previous-project">
+          keyboard_arrow_left
+        </span>
+      </a>
+
+      <a href={firstProject.slug.current} title="First Project">
+        <span class="material-symbols-outlined arrow-previous-project--first">
           keyboard_double_arrow_left
         </span>
       </a>
@@ -135,6 +149,17 @@
   .arrow-next-project {
     position: absolute;
     bottom: 0;
+    right: 5rem;
+    z-index: 200;
+    font-size: 5rem;
+    color: #ffffffff;
+    margin: 1rem;
+    cursor: pointer;
+  }
+
+  .arrow-next-project--last {
+    position: absolute;
+    bottom: 0;
     right: 0;
     z-index: 200;
     font-size: 5rem;
@@ -144,6 +169,17 @@
   }
 
   .arrow-previous-project {
+    position: absolute;
+    bottom: 0;
+    left: 5rem;
+    z-index: 200;
+    font-size: 5rem;
+    color: #ffffffff;
+    margin: 1rem;
+    cursor: pointer;
+  }
+
+  .arrow-previous-project--first {
     position: absolute;
     bottom: 0;
     left: 0;

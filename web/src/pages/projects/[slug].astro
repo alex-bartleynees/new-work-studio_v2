@@ -23,6 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { project, projects } = Astro.props;
+
 const projectIndex = projects.findIndex(
   (p) => p.slug.current === project.slug.current
 );
@@ -40,5 +41,7 @@ const previousProject =
     images={project.images}
     nextProject={nextProject}
     previousProject={previousProject}
+    firstProject={projects[0]}
+    lastProject={projects[projects.length - 1]}
   />
 </Layout>
