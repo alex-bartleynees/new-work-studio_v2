@@ -18,7 +18,5 @@ export default defineConfig({
   build: {
     format: "file",
   },
-  experimental: {
-    viewTransitions: true,
-  },
+  prefetch: true,
 });
