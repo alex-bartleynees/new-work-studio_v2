@@ -26,20 +26,14 @@ ol[role="list"] {
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 80%;
 }
 
-@media (min-width: 1800px) {
+@media (max-width: 600px) {
   html {
-    font-size: 80%;
+    font-size: 62.5%;
   }
 }
-
-/* @media (max-width: 600px) {
-  html {
-    font-size: 45%;
-  }
-} */
 
 /* Set core root defaults */
 html:focus-within {
