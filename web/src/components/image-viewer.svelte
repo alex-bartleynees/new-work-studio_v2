@@ -119,6 +119,10 @@
   }
   .second-image {
     margin-top: -56px;
+
+    @media screen and (max-width: 37.5em) {
+      margin-top: -185px;
+    }
   }
   .full-size-img {
     width: 100svw;
