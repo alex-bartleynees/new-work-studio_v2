@@ -126,7 +126,7 @@
   }
   .full-size-img {
     width: 100svw;
-    height: 100svh;
+    height: 100lvh;
     object-fit: cover;
     scroll-snap-align: start;
   }
