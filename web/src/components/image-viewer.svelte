@@ -12,10 +12,6 @@
   export let firstProject;
   export let lastProject;
 
-  let body;
-  let imagesWithSize;
-  let imageIndex = 0;
-
   let showButton = false;
 
   onMount(() => {
@@ -30,17 +26,6 @@
       showButton = false;
     }
   }
-
-  const selectImage = (index) => {
-    if (index < 0) {
-      index = images.length - 1;
-    } else if (index > images.length - 1) {
-      index = 0;
-    }
-    imageIndex = index;
-    body.style.backgroundImage = `url(${imagesWithSize[imageIndex].src})`;
-    setImagePosition();
-  };
 </script>
 
 <div class="container">
@@ -52,9 +37,9 @@
         alt=""
       />
       <div class="details">
-        <h3 class="text image-title">{project?.title ?? ""}</h3>
-        <h3 class="text awards">{project?.awards ?? ""}</h3>
-        <h3 class="text">{project?.description ?? ""}</h3>
+        <h4 class="text image-title">{project?.title ?? ""}</h4>
+        <h4 class="text awards">{project?.awards ?? ""}</h4>
+        <h4 class="text">{project?.description ?? ""}</h4>
       </div>
 
       <a href={nextProject.slug.current} title="Next Project">
