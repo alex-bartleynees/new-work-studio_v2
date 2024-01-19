@@ -129,6 +129,7 @@
   .details {
     position: absolute;
     margin-inline: 3.5rem;
+    text-wrap: balance;
   }
 
   .arrow-next-project {
@@ -184,6 +185,10 @@
 
   .awards {
     white-space: pre;
+
+    @media screen and (max-width: 37.5em) {
+      text-wrap: balance;
+    }
   }
 
   .image-title {

@@ -76,8 +76,12 @@ const { showLogo = false } = Astro.props;
     gap: 1rem;
     flex-wrap: wrap;
 
-    @media (max-width: 900px) {
+    @media screen and (max-width: 900px) {
       margin-inline-start: 0;
+    }
+
+    @media screen and (max-width: 37.5em) {
+      justify-content: flex-start;
     }
   }
 </style>

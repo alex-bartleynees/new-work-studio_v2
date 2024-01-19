@@ -35,11 +35,11 @@ html {
   }
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   html {
     font-size: 45%;
   }
-}
+} */
 
 /* Set core root defaults */
 html:focus-within {
