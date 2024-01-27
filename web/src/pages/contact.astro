@@ -1,21 +1,17 @@
 ---
-import { useSanityClient } from "astro-sanity";
+import { sanityClient } from "sanity:client";
 import Layout from "../components/layout.astro";
 import MainHeader from "../components/main-header.astro";
-import { sanityPortableText } from "../../utilities/portable-text";
+import { PortableText} from "astro-portabletext";
 
-const data = await useSanityClient().fetch(`*[_type == "contact"][0]`);
-console.log(data);
+const data = await sanityClient.fetch(`*[_type == "contact"][0]`);
 ---
 
 <Layout title="Contact | Tim Nees Architects" bodyClass="body__contact">
   <div class="backdrop">
     <MainHeader showLogo={true} />
     <section class="contact-text">
-      <Fragment
-        class:list="profile-text__list"
-        set:html={sanityPortableText(data?.content)}
-      />
+      <PortableText value={data.content}  />
     </section>
   </div>
 </Layout>

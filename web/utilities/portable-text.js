@@ -1,5 +1,5 @@
-import { portableTextToHtml } from "astro-sanity";
+import { PortableText as PortableTextInternal } from "astro-portabletext";
 
 export function sanityPortableText(portabletext) {
-  return portableTextToHtml(portabletext);
+  return PortableTextInternal(portabletext);
 }

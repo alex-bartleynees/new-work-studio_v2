@@ -1,13 +1,12 @@
 ---
 import Layout from "../../components/layout.astro";
 import "../../styles/global.css";
-import { useSanityClient } from "astro-sanity";
+import { sanityClient } from "sanity:client";
 import MainHeader from "../../components/main-header.astro";
-import { Fragment } from "astro/dist/runtime/server";
 import ImageViewer from "../../components/image-viewer.svelte";
 
 export async function getStaticPaths() {
-  const projects = await useSanityClient().fetch(
+  const projects = await sanityClient.fetch(
     `*[_type == "projects"] | order(sortOrder desc)`
   );
 

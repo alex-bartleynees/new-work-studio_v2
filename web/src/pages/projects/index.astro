@@ -1,13 +1,12 @@
 ---
 import { urlFor } from "../../../utilities/urlForImage-client";
-import ImageWrapper from "../../components/image-wrapper.astro";
 import Layout from "../../components/layout.astro";
 import MainHeader from "../../components/main-header.astro";
 import WorkScroll from "../../components/work-scroll.svelte";
 import "../../styles/global.css";
-import { useSanityClient } from "astro-sanity";
+import { sanityClient } from "sanity:client";
 
-const data = await useSanityClient().fetch(
+const data = await sanityClient.fetch(
   `*[_type in ["projects", "backgrounds"]] | order(sortOrder desc)`
 );
 
