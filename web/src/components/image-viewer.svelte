@@ -193,6 +193,7 @@
     @media screen and (max-width: 37.5em) {
       text-wrap: balance;
       white-space: break-spaces;
+      display: none;
     }
   }
 
