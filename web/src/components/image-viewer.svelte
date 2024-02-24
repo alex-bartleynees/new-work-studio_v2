@@ -37,7 +37,7 @@
         alt=""
       />
       <div class="details">
-        <h4 class="text image-title">{project?.title ?? ""}</h4>
+        <h4 class="image-title">{project?.title ?? ""}</h4>
         <h4 class="text awards">{project?.awards ?? ""}</h4>
         <h4 class="text">{project?.description ?? ""}</h4>
       </div>
@@ -130,6 +130,7 @@
     object-fit: cover;
     scroll-snap-align: start;
   }
+
   .details {
     position: absolute;
     margin-inline: 3.5rem;
@@ -185,6 +186,10 @@
     z-index: 200;
     margin: 1rem 0;
     max-width: 50ch;
+
+    @media screen and (max-width: 37.5em) {
+      display: none;
+    }
   }
 
   .awards {
@@ -193,12 +198,15 @@
     @media screen and (max-width: 37.5em) {
       text-wrap: balance;
       white-space: break-spaces;
-      display: none;
     }
   }
 
   .image-title {
     font-weight: bolder;
+    position: relative;
+    z-index: 200;
+    margin: 1rem 0;
+    max-width: 50ch;
   }
 
   .back-to-top {
