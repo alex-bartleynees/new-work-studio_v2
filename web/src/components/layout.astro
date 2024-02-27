@@ -1,11 +1,25 @@
 ---
+import { seoConfig } from "../../utilities/seo-config";
 import "../styles/global.css";
+import { SEO } from "astro-seo";
 
 const { title, bodyClass, backgroundUrl } = Astro.props;
 ---
 
 <html lang="en">
   <head>
+    <SEO
+      title={title ?? "Tim Nees Architects"}
+      description={seoConfig.description}
+      openGraph={{
+        basic: {
+          title: title ?? seoConfig.siteName,
+          type: "website",
+          url: seoConfig.baseURL,
+          image: seoConfig.image.url,
+        },
+      }}
+    />
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon-32x32.png" />
     <link
@@ -14,26 +28,6 @@ const { title, bodyClass, backgroundUrl } = Astro.props;
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Tim Nees Architects New Work Studio architecture design residential architecture
-      home design house plans custom home design architectural service residential architexts modern home design green architecture
-      sustainable architecture sustainable design green design passive solar design passive solar architecture passive solar home design Christchurch Registered Architect
-      New Zealand award winning awards houses residential passive off-grid beautiful NZIA Tim Nees Taylor's Mistake timber natural affordable competitive fee
-     "
-    />
-    <meta
-      property="og:description"
-      content="New Work Studio/Tim Nees Architects is an award-winning creative practice based in Aotearoa New Zealand."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title ?? "Tim Nees Architects"} />
-    <meta property="og:url" content="https://timneesarchitect.com" />
-    <meta property="og:site_name" content="Tim Nees Architects" />
-    <meta
-      property="og:image"
-      content="/Taylors Mistake House_South elevation_David Straight Photographer_1 copy.jpg"
-    />
     <title>{title ?? "Tim Nees Architects"}</title>
   </head>
   <body class={bodyClass} style={`background-image: url(${backgroundUrl})`}>
