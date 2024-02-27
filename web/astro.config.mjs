@@ -10,6 +10,7 @@ import { manifest, seoConfig } from "./utilities/seo-config";
 
 // https://astro.build/config
 export default defineConfig({
+  site: seoConfig.baseURL,
   integrations: [
     sanityIntegration({
       projectId: "snzv7bf5",

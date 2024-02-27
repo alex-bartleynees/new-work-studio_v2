@@ -28,6 +28,7 @@ const { title, bodyClass, backgroundUrl } = Astro.props;
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title ?? "Tim Nees Architects"}</title>
 
     <script is:inline src="/registerSW.js"></script>
