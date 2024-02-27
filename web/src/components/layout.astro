@@ -29,6 +29,9 @@ const { title, bodyClass, backgroundUrl } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title ?? "Tim Nees Architects"}</title>
+
+    <script is:inline src="/registerSW.js"></script>
+    <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body class={bodyClass} style={`background-image: url(${backgroundUrl})`}>
     <slot />
