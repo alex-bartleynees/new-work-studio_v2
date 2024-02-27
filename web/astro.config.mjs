@@ -1,7 +1,9 @@
 import { defineConfig } from "astro/config";
 import { sanityIntegration } from "@sanity/astro";
-
+import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
+
+import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +15,8 @@ export default defineConfig({
       useCdn: false,
     }),
     svelte(),
+    sitemap(),
+    compress(),
   ],
   compressHTML: true,
   build: {

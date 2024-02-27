@@ -10,11 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.1.1",
     "@astrojs/svelte": "^5.0.3",
     "@sanity/astro": "^2.2.0",
     "@sanity/client": "^6.12.1",
     "astro": "^4.2.6",
+    "astro-compress": "^2.2.11",
     "astro-portabletext": "^0.9.6",
+    "astro-seo": "^0.8.2",
     "perfect-scrollbar": "^1.5.5",
     "sass": "^1.63.3",
     "svelte": "^4.2.8"

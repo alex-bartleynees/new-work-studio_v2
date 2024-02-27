@@ -17,10 +17,19 @@ const { title, bodyClass, backgroundUrl } = Astro.props;
     <meta
       name="description"
       content="Tim Nees Architects New Work Studio architecture design residential architecture
-     home design house plans custom home design architectural service residential architexts modern home design green architecture
-      sustainable architecture sustainable design green design passive solar design passive solar architecture passive solar home design
+      home design house plans custom home design architectural service residential architexts modern home design green architecture
+      sustainable architecture sustainable design green design passive solar design passive solar architecture passive solar home design Christchurch Registered Architect
+      New Zealand award winning awards houses residential passive off-grid beautiful NZIA Tim Nees Taylor's Mistake timber natural affordable competitive fee
      "
     />
+    <meta
+      property="og:description"
+      content="Christchurch Registered Architect New Zealand award winning awards houses residential passive off-grid beautiful NZIA Tim Nees Taylor's Mistake timber natural affordable competitive fee"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Home | Tim Nees Architects" />
+    <meta property="og:url" content="https://timneesarchitect.com" />
+    <meta property="og:site_name" content="Tim Nees Architects" />
     <title>{title ?? "Tim Nees Architects"}</title>
   </head>
   <body class={bodyClass} style={`background-image: url(${backgroundUrl})`}>
