@@ -33,7 +33,7 @@
     {#if index === 0}
       <img
         class="full-size-img first-image"
-        src={urlFor(image).height(2000).url()}
+        src={urlFor(image).quality(50).height(2000).auto("format").url()}
         alt=""
       />
       <div class="details">
@@ -70,19 +70,19 @@
     {#if index === 0}
       <img
         class="full-size-img second-image"
-        src={urlFor(image).url()}
+        src={urlFor(image).quality(50).auto("format").url()}
         alt=""
       />
     {:else if image.orientation === "portrait"}
       <img
         class="full-size-img portrait"
-        src={urlFor(image).height(2000).url()}
+        src={urlFor(image).height(2000).quality(50).auto("format").url()}
         alt=""
       />
     {:else}
       <img
         class="full-size-img"
-        src={urlFor(image).height(2000).url()}
+        src={urlFor(image).height(2000).quality(50).auto("format").url()}
         alt=""
       />
     {/if}
