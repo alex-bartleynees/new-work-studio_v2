@@ -31,7 +31,11 @@ const { showLogo = false } = Astro.props;
   </div>
 </header>
 
-{showLogo && <img class="logo" src="/NZIA-Logo.png" alt="NZIA practice logo" />}
+{
+  showLogo && (
+    <img class="logo" src="/NZIA-Logo.webp" alt="NZIA practice logo" />
+  )
+}
 
 <style lang="scss">
   .logo {
