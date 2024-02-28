@@ -15,7 +15,7 @@
   let showButton = false;
 
   onMount(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
   });
 
   function handleScroll() {
@@ -33,8 +33,8 @@
     {#if index === 0}
       <img
         class="full-size-img first-image"
-        src={urlFor(image).quality(50).height(2000).auto("format").url()}
-        alt=""
+        src={urlFor(image).quality(50).height(1500).auto("format").url()}
+        alt={image.alt}
       />
       <div class="details">
         <h4 class="image-title">{project?.title ?? ""}</h4>
@@ -70,20 +70,20 @@
     {#if index === 0}
       <img
         class="full-size-img second-image"
-        src={urlFor(image).quality(50).auto("format").url()}
-        alt=""
+        src={urlFor(image).height(1500).quality(50).auto("format").url()}
+        alt={image.alt}
       />
     {:else if image.orientation === "portrait"}
       <img
         class="full-size-img portrait"
-        src={urlFor(image).height(2000).quality(50).auto("format").url()}
-        alt=""
+        src={urlFor(image).height(1500).quality(50).auto("format").url()}
+        alt={image.alt}
       />
     {:else}
       <img
         class="full-size-img"
-        src={urlFor(image).height(2000).quality(50).auto("format").url()}
-        alt=""
+        src={urlFor(image).height(1500).quality(50).auto("format").url()}
+        alt={image.alt}
       />
     {/if}
   {/each}
