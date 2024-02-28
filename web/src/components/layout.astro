@@ -2,6 +2,7 @@
 import { seoConfig } from "../../utilities/seo-config";
 import "../styles/global.css";
 import { SEO } from "astro-seo";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 
 const { title, bodyClass, backgroundUrl } = Astro.props;
 ---
@@ -22,9 +23,8 @@ const { title, bodyClass, backgroundUrl } = Astro.props;
     />
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon-32x32.png" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    <GoogleFontsOptimizer
+      url="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
