@@ -33,7 +33,11 @@ const projects = data
 <Layout
   title="Projects | Tim Nees Architects"
   bodyClass="backdrop backdrop--workpage"
-  backgroundUrl={urlFor(workPageBackground[0]?.workPageBackground)}
+  backgroundUrl={urlFor(workPageBackground[0]?.workPageBackground)
+    .height(2000)
+    .quality(50)
+    .auto("format")
+    .url()}
 >
   <MainHeader />
   <WorkScroll client:load projects={projects} />
