@@ -84,6 +84,7 @@
         class="full-size-img"
         src={urlFor(image).height(1500).quality(50).auto("format").url()}
         alt={image.alt}
+        loading="lazy"
       />
     {/if}
   {/each}
