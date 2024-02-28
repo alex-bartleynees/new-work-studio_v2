@@ -4,8 +4,7 @@ import "../styles/global.css";
 import { sanityPortableText } from "../../utilities/portable-text";
 import Layout from "../components/layout.astro";
 import MainHeader from "../components/main-header.astro";
-import { PortableText} from "astro-portabletext";
-
+import { PortableText } from "astro-portabletext";
 
 const data = await sanityClient.fetch(`*[_type == "profile"][0]`);
 ---
@@ -14,7 +13,7 @@ const data = await sanityClient.fetch(`*[_type == "profile"][0]`);
   <div class="backdrop">
     <MainHeader showLogo={true} />
     <section class="profile-text">
-      <PortableText value={data.content}  />
+      <PortableText value={data.content} />
     </section>
   </div>
 </Layout>
@@ -27,7 +26,7 @@ const data = await sanityClient.fetch(`*[_type == "profile"][0]`);
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/models profile.jpg");
+    background-image: url("/models profile.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

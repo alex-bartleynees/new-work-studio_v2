@@ -2,7 +2,7 @@
 import { sanityClient } from "sanity:client";
 import Layout from "../components/layout.astro";
 import MainHeader from "../components/main-header.astro";
-import { PortableText} from "astro-portabletext";
+import { PortableText } from "astro-portabletext";
 
 const data = await sanityClient.fetch(`*[_type == "contact"][0]`);
 ---
@@ -11,7 +11,7 @@ const data = await sanityClient.fetch(`*[_type == "contact"][0]`);
   <div class="backdrop">
     <MainHeader showLogo={true} />
     <section class="contact-text">
-      <PortableText value={data.content}  />
+      <PortableText value={data.content} />
     </section>
   </div>
 </Layout>
@@ -24,7 +24,7 @@ const data = await sanityClient.fetch(`*[_type == "contact"][0]`);
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/Contact background.jpg");
+    background-image: url("/Contact background.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
