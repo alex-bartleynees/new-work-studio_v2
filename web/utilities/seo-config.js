@@ -8,7 +8,7 @@ export const seoConfig = {
     sustainable architecture sustainable design green design passive solar design passive solar architecture passive solar home design Christchurch Registered Architect
     New Zealand award winning awards houses residential passive off-grid beautiful NZIA Tim Nees Taylor's Mistake timber natural affordable competitive fee`,
   image: {
-    url: "/public/Taylors Mistake House.webp",
+    url: "/Taylors Mistake House.webp",
     alt: "Taylor's Mistake House",
   },
   siteName: "Tim Nees Architects",
