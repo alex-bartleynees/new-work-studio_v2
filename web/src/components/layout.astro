@@ -35,7 +35,10 @@ const { title, bodyClass, backgroundUrl, ogImage } = Astro.props;
     <script is:inline src="/registerSW.js"></script>
     <link rel="manifest" href="/manifest.webmanifest" />
   </head>
-  <body class={bodyClass} style={`background-image: url(${backgroundUrl})`}>
+  <body
+    class={bodyClass}
+    style={`background-image: url(${backgroundUrl ?? ""})`}
+  >
     <slot />
   </body>
 </html>
