@@ -4,6 +4,7 @@ import "../../styles/global.css";
 import { sanityClient } from "sanity:client";
 import MainHeader from "../../components/main-header.astro";
 import ImageViewer from "../../components/image-viewer.svelte";
+import { urlFor } from "../../../utilities/urlForImage-client";
 
 export async function getStaticPaths() {
   const projects = await sanityClient.fetch(
@@ -34,7 +35,11 @@ const previousProject =
 
 <Layout
   title={`${project.title} | Tim Nees Architects`}
-  ogImage={project.images[0].image?.url}
+  ogImage={urlFor(project.images[0].asset)
+    .height(1200)
+    .quality(50)
+    .auto("format")
+    .url()}
 >
   <MainHeader />
   <ImageViewer
