@@ -32,7 +32,10 @@ const previousProject =
   projects[projectIndex - 1] || projects[projects.length - 1];
 ---
 
-<Layout title={`${project.title} | Tim Nees Architects`}>
+<Layout
+  title={`${project.title} | Tim Nees Architects`}
+  ogImage={project.images[0].image.url}
+>
   <MainHeader />
   <ImageViewer
     client:load

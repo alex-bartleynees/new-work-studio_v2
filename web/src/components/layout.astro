@@ -4,7 +4,7 @@ import "../styles/global.css";
 import { SEO } from "astro-seo";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 
-const { title, bodyClass, backgroundUrl } = Astro.props;
+const { title, bodyClass, backgroundUrl, ogImage } = Astro.props;
 ---
 
 <html lang="en">
@@ -16,7 +16,7 @@ const { title, bodyClass, backgroundUrl } = Astro.props;
         basic: {
           title: title ?? seoConfig.siteName,
           type: "website",
-          url: seoConfig.baseURL,
+          url: ogImage ?? seoConfig.baseURL,
           image: seoConfig.image.url,
         },
       }}
