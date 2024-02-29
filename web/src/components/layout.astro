@@ -16,8 +16,8 @@ const { title, bodyClass, backgroundUrl, ogImage } = Astro.props;
         basic: {
           title: title ?? seoConfig.siteName,
           type: "website",
-          url: ogImage ?? seoConfig.baseURL,
-          image: seoConfig.image.url,
+          url: seoConfig.baseURL,
+          image: ogImage ?? seoConfig.image.url,
         },
       }}
     />
