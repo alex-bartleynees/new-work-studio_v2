@@ -5,22 +5,22 @@ const { showLogo = false } = Astro.props;
 ---
 
 <header class="heading">
-  <a class="home-link" href="/"
+  <a class="home-link" href="/" data-astro-reload
     ><h1 class="main-heading">newworkstudio/</h1><h1>timneesarchitect</h1></a
   >
 
   <div class="navigation">
-    <a href="/projects"
+    <a href="/projects" data-astro-reload
       ><h2 class={currentPath.includes("projects") ? "active" : ""}>
         projects
       </h2></a
     >
-    <a href="/profile"
+    <a href="/profile" data-astro-reload
       ><h2 class={currentPath.includes("profile") ? "active" : ""}>
         profile
       </h2></a
     >
-    <a href="/contact"
+    <a href="/contact" data-astro-reload
       ><h2 class={currentPath.includes("contact") ? "active" : ""}>
         contact
       </h2></a
