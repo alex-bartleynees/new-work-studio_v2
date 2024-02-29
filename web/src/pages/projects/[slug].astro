@@ -4,7 +4,29 @@ import "../../styles/global.css";
 import { sanityClient } from "sanity:client";
 import MainHeader from "../../components/main-header.astro";
 import ImageViewer from "../../components/image-viewer.svelte";
-import { urlFor } from "../../../utilities/urlForImage-client";
+import { urlForImage as urlFor } from "../../../utilities/urlForImage";
+
+type Image = {
+  asset: any;
+  title: string;
+  orientation: string;
+  credits: string;
+  alt: string;
+};
+
+type Project = {
+  title: string;
+  slug: {
+    current: string;
+  };
+  images: Image[];
+  description: string;
+  awards: string;
+};
+interface Props {
+  project: Project;
+  projects: Project[];
+}
 
 export async function getStaticPaths() {
   const projects = await sanityClient.fetch(

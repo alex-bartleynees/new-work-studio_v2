@@ -1,5 +1,5 @@
 <script context="module">
-  import { urlFor } from "../../utilities/urlForImage-client";
+  import { urlForImage as urlFor } from "../../utilities/urlForImage";
 </script>
 
 <script>
