@@ -7,7 +7,13 @@ import { PortableText } from "astro-portabletext";
 const data = await sanityClient.fetch(`*[_type == "contact"][0]`);
 ---
 
-<Layout title="Contact | Tim Nees Architects" bodyClass="body__contact">
+<Layout
+  title="Contact | Tim Nees Architects"
+  bodyClass="body__contact"
+  description={`Contact Tim Nees Architects New Work Studio. Architecture is a collaboration. All collaborations start with a thought, a request for information, a conversation. New Work Studio/ Tim Nees Architects welcomes enquiries. No matter how straightforward or vague your thinking may seem, just get in touch. Fees are not charged unless a commission is confirmed. 139 Taylor’s Mistake Road
+Scarborough Christchurch 8081
+New Zealand`}
+>
   <div class="backdrop">
     <MainHeader showLogo={true} />
     <section class="contact-text">

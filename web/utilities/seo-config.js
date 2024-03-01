@@ -3,10 +3,9 @@
  */
 export const seoConfig = {
   baseURL: "https://timneesarchitect.com/",
-  description: `New Work Studio/Tim Nees Architects is an award-winning creative practice based in Aotearoa New Zealand. Tim Nees Architects New Work Studio architecture design residential architecture
-    home design house plans custom home design architectural service residential architexts modern home design green architecture
-    sustainable architecture sustainable design green design passive solar design passive solar architecture passive solar home design Christchurch Registered Architect
-    New Zealand award winning awards houses residential passive off-grid beautiful NZIA Tim Nees Taylor's Mistake timber natural affordable competitive fee`,
+  description: `New Work Studio/Tim Nees Architects is an award-winning creative practice based in Aotearoa New Zealand. Tim Nees Architects New Work Studio architecture design residential
+    home design house plans custom architectural service modern green architecture sustainable passive solar Christchurch Registered Architect award winning awards houses off-grid beautiful 
+    NZIA New Zealand Institute of Architects Tim Nees New Work Studio Tim Nees Architects Taylor's Mistake timber natural affordable competitive fee Scarborough Christchurch 8081 New Zealand`,
   image: {
     url: "/Taylors Mistake House.webp",
     alt: "Taylor's Mistake House",

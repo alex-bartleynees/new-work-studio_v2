@@ -8,7 +8,11 @@ import { PortableText } from "astro-portabletext";
 const data = await sanityClient.fetch(`*[_type == "profile"][0]`);
 ---
 
-<Layout title="Profile | Tim Nees Architects" bodyClass="body__profile">
+<Layout
+  title="Profile | Tim Nees Architects"
+  bodyClass="body__profile"
+  description="New Work Studio/Tim Nees Architects is an award-winning creative practice based in Aotearoa New Zealand. We enjoy meeting new clients and growing new relationships. Our design process is serious fun, sometimes challenging, always rewarding. A certain magic happens. Every project relies on sincere communication, trust, and commitment to detail to achieve great outcomes. Tim Nees Architects New Work Studio architecture design residential"
+>
   <div class="backdrop">
     <MainHeader showLogo={true} />
     <section class="profile-text">

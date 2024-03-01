@@ -5,14 +5,14 @@ import { SEO } from "astro-seo";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { ViewTransitions } from "astro:transitions";
 
-const { title, bodyClass, backgroundUrl, ogImage } = Astro.props;
+const { title, bodyClass, backgroundUrl, ogImage, description } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <SEO
       title={title ?? "Tim Nees Architects"}
-      description={seoConfig.description}
+      description={description ?? seoConfig.description}
       openGraph={{
         basic: {
           title: title ?? seoConfig.siteName,
