@@ -28,67 +28,57 @@
   }
 </script>
 
-<div class="container">
-  {#each images as image, index}
-    {#if index === 0}
-      <img
-        class="full-size-img first-image"
-        src={urlFor(image).quality(50).height(1500).auto("format").url()}
-        alt={image.alt}
-      />
-      <div class="details">
-        <h4 class="image-title">{project?.title ?? ""}</h4>
-        <h4 class="text awards">{project?.awards ?? ""}</h4>
-        <h4 class="text">{project?.description ?? ""}</h4>
-      </div>
+{#each images as image, index}
+  {#if index === 0}
+    <img
+      class="full-size-img first-image"
+      src={urlFor(image).quality(50).height(1500).auto("format").url()}
+      alt={image.alt}
+    />
+    <div class="details">
+      <h4 class="image-title">{project?.title ?? ""}</h4>
+      <h4 class="text awards">{project?.awards ?? ""}</h4>
+      <h4 class="text">{project?.description ?? ""}</h4>
+    </div>
 
-      <a href={nextProject.slug.current} title="Next Project">
-        <span class="material-symbols-outlined arrow-next-project">
-          keyboard_arrow_right
-        </span>
-      </a>
+    <a href={nextProject.slug.current} title="Next Project">
+      <span class="material-symbols-outlined arrow-next-project">
+        keyboard_arrow_right
+      </span>
+    </a>
 
-      <a href={lastProject.slug.current} title="Last Project">
-        <span class="material-symbols-outlined arrow-next-project--last">
-          keyboard_double_arrow_right
-        </span>
-      </a>
+    <a href={lastProject.slug.current} title="Last Project">
+      <span class="material-symbols-outlined arrow-next-project--last">
+        keyboard_double_arrow_right
+      </span>
+    </a>
 
-      <a href={previousProject.slug.current} title="Previous Project">
-        <span class="material-symbols-outlined arrow-previous-project">
-          keyboard_arrow_left
-        </span>
-      </a>
+    <a href={previousProject.slug.current} title="Previous Project">
+      <span class="material-symbols-outlined arrow-previous-project">
+        keyboard_arrow_left
+      </span>
+    </a>
 
-      <a href={firstProject.slug.current} title="First Project">
-        <span class="material-symbols-outlined arrow-previous-project--first">
-          keyboard_double_arrow_left
-        </span>
-      </a>
-    {/if}
-
-    {#if index === 0}
-      <img
-        class="full-size-img second-image"
-        src={urlFor(image).height(1500).quality(50).auto("format").url()}
-        alt={image.alt}
-      />
-    {:else if image.orientation === "portrait"}
-      <img
-        class="full-size-img portrait"
-        src={urlFor(image).height(1500).quality(50).auto("format").url()}
-        alt={image.alt}
-      />
-    {:else}
-      <img
-        class="full-size-img"
-        src={urlFor(image).height(1500).quality(50).auto("format").url()}
-        alt={image.alt}
-        loading="lazy"
-      />
-    {/if}
-  {/each}
-</div>
+    <a href={firstProject.slug.current} title="First Project">
+      <span class="material-symbols-outlined arrow-previous-project--first">
+        keyboard_double_arrow_left
+      </span>
+    </a>
+  {:else if image.orientation === "portrait"}
+    <img
+      class="full-size-img portrait"
+      src={urlFor(image).height(1500).quality(50).auto("format").url()}
+      alt={image.alt}
+    />
+  {:else}
+    <img
+      class="full-size-img"
+      src={urlFor(image).height(1500).quality(50).auto("format").url()}
+      alt={image.alt}
+      loading="lazy"
+    />
+  {/if}
+{/each}
 
 {#if showButton}
   <div class="back-to-top">
@@ -101,10 +91,6 @@
 {/if}
 
 <style lang="scss">
-  .container {
-    scroll-snap-type: y mandatory;
-    overflow-y: hidden;
-  }
   .portrait {
     object-fit: contain !important;
     object-position: left !important;
@@ -114,17 +100,12 @@
       object-fit: cover !important;
     }
   }
+
   .first-image {
     position: absolute;
     top: 0;
   }
-  .second-image {
-    margin-top: -56px;
 
-    @media screen and (max-width: 37.5em) {
-      margin-top: -185px;
-    }
-  }
   .full-size-img {
     width: 100svw;
     height: 100lvh;
@@ -133,9 +114,21 @@
   }
 
   .details {
-    position: absolute;
     margin-inline: 3.5rem;
     text-wrap: balance;
+    height: calc(100lvh - 87px);
+
+    @media screen and (max-width: 88.315em) {
+      height: calc(100lvh - 124px);
+    }
+
+    @media screen and (max-width: 51.75em) {
+      height: calc(100lvh - 181px);
+    }
+
+    @media screen and (max-width: 39.5em) {
+      height: calc(100lvh - 197px);
+    }
   }
 
   .arrow-next-project {
